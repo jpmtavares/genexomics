@@ -1,0 +1,11 @@
+name: condaenv
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - snakemake
+  - scanpy
+  - pandas
+  - numpy
+  - matplotlib
+  - python-igraph
