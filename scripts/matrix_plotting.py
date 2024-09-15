@@ -7,7 +7,7 @@ def parse_args():
     Parse command-line arguments.
     """
     parser = argparse.ArgumentParser(description="Process single-cell RNA-seq data.")
-    parser.add_argument('--input_dir', type=str, required=True, help='Path to the 10X data directory.')
+    parser.add_argument('--input_dir', type=str, required=True, help='Path to the 10X Genomics directory of filtered feature-barcode matrix.')
     return parser.parse_args()
 
 def read_data(input_dir):
@@ -56,10 +56,10 @@ def visualize_data(ann_data):
     Generate and save PCA and UMAP plots.
     """
     # Save PCA plot
-    sc.pl.pca(ann_data, color='total_counts', save=f'.png')
+    sc.pl.pca(ann_data, color='total_counts', save='.png')
     # Save UMAP plots
-    sc.pl.umap(ann_data, color=['total_counts', 'n_genes_by_counts', 'mito_percent'], save=f'.png')
-    sc.pl.umap(ann_data, color='leiden', save=f'.pdf')
+    sc.pl.umap(ann_data, color=['total_counts', 'n_genes_by_counts', 'mito_percent'], save='.png')
+    sc.pl.umap(ann_data, color='leiden', save='.pdf')
 
 def main():
 
